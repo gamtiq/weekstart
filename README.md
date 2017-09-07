@@ -1,2 +1,118 @@
-# weekstart
+# weekstart <a name="start"></a>
+
 Library to get first day of week.
+
+```js
+getWeekStartByRegion('MAC');   // 0
+
+getWeekStartByLocale('ary');   // 6
+```
+
+[![NPM version](https://badge.fury.io/js/weekstart.png)](http://badge.fury.io/js/weekstart)
+[![Build Status](https://secure.travis-ci.org/gamtiq/weekstart.png?branch=master)](http://travis-ci.org/gamtiq/weekstart)
+
+## Table of contents
+
+* [Installation](#install)
+* [Usage](#usage)
+* [Examples](#examples)
+* [API](#api)
+* [Contributing](#contributing)
+* [License](#license)
+
+## Installation <a name="install"></a> [&#x2191;](#start)
+
+### Node
+
+    npm install weekstart
+
+### [Bower](http://bower.io)
+
+    bower install weekstart
+
+### AMD, &lt;script&gt;
+
+Use `dist/weekstart.js` or `dist/weekstart.min.js` (minified version).
+
+## Usage <a name="usage"></a> [&#x2191;](#start)
+
+### ECMAScript 6
+
+```js
+import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart';
+```
+
+### Node
+
+```js
+const getWeekStartByLocale = require('weekstart').getWeekStartByLocale;
+const getWeekStartByRegion = require('weekstart').getWeekStartByRegion;
+```
+
+### [Duo](http://duojs.org)
+
+```js
+const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
+const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;
+```
+
+### AMD
+
+```js
+define(['path/to/dist/weekstart.js'], function(weekstart) {
+    const getWeekStartByLocale = weekstart.getWeekStartByLocale;
+    const getWeekStartByRegion = weekstart.getWeekStartByRegion;
+});
+```
+
+### Bower, &lt;script&gt;
+
+```html
+<!-- Use bower_components/weekstart/dist/weekstart.js and bower_components/weekstart/dist/extra.js if the library was installed by Bower -->
+<script type="text/javascript" src="path/to/dist/weekstart.js"></script>
+<script type="text/javascript">
+    // weekstart is available via weekstart field of window object
+    const getWeekStartByLocale = weekstart.getWeekStartByLocale;
+    const getWeekStartByRegion = weekstart.getWeekStartByRegion;
+</script>
+```
+
+### Examples <a name="examples"></a> [&#x2191;](#start)
+
+```js
+getWeekStartByRegion('dj');   // 6
+getWeekStartByRegion('No');   // 1
+getWeekStartByRegion('CAN');   // 0
+getWeekStartByRegion(50);   // 5
+
+getWeekStartByLocale('Jam');   // 0
+getWeekStartByLocale('Fa');   // 6
+getWeekStartByLocale('CCP');   // 5
+getWeekStartByLocale('vi');   // 1
+getWeekStartByLocale('UZ-arab');   // 6
+getWeekStartByLocale('es_MX');   // 0
+getWeekStartByLocale('az-Arab-IRN');   // 6
+```
+
+## API <a name="api"></a> [&#x2191;](#start)
+
+#### getWeekStartByLocale(locale): number
+
+Return first day of week for locale identifier:
+0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.
+
+#### getWeekStartByRegion(regionCode): number
+
+Return first day of week for country/region code:
+0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.
+
+See `doc` folder for details.
+
+## Contributing <a name="contributing"></a> [&#x2191;](#start)
+In lieu of a formal styleguide, take care to maintain the existing coding style.
+Add unit tests for any new or changed functionality.
+Lint and test your code.
+
+## License <a name="license"></a> [&#x2191;](#start)
+Copyright (c) 2017 Denis Sikuler  
+Licensed under the MIT license.

@@ -1,0 +1,59 @@
+{
+  "name": "weekstart",
+  "version": "0.1.0",
+  "description": "Library to get first day of week.",
+  "homepage": "https://github.com/gamtiq/weekstart",
+  "main": "dist/commonjs/weekstart.js",
+  "keywords": [
+    "week",
+    "start",
+    "first",
+    "day",
+    "locale",
+    "country",
+    "region"
+  ],
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
+    "babel-plugin-transform-es2015-modules-umd": "6.24.1",
+    "babel-preset-es2015": "6.24.1",
+    "cross-env": "5.0.5",
+    "eslint": "4.5.0",
+    "eslint-config-guard": "0.3.0",
+    "ink-docstrap": "1.3.0",
+    "jest": "20.0.4",
+    "jsdoc": "3.5.4",
+    "uglify-js": "3.0.28",
+    "version-bump-prompt": "3.1.2"
+  },
+  "scripts": {
+    "lint": "eslint --cache --max-warnings 0 \"**/*.js\"",
+    "lint-error": "eslint --cache \"**/*.js\"",
+    "lint-all": "eslint --max-warnings 0 \"**/*.js\"",
+    "lint-all-error": "eslint \"**/*.js\"",
+    "test": "jest",
+    "check": "npm run lint && npm test",
+    "check-all": "npm run lint-all && npm test",
+    "doc": "jsdoc -c jsdoc-conf.json",
+    "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --ignore test.js --out-dir dist/commonjs --source-maps",
+    "build-umd": "cross-env BABEL_ENV=umd babel src --ignore test.js --out-dir dist --source-maps",
+    "minify": "uglifyjs dist/weekstart.js --output dist/weekstart.min.js --compress --mangle --source-map content=\"dist/weekstart.js.map\",url=weekstart.min.js.map",
+    "build": "npm run build-commonjs && npm run build-umd && npm run minify",
+    "all": "npm run check-all && npm run doc && npm run build",
+    "release": "bump --patch --commit --tag --all --push",
+    "release-minor": "bump --minor --commit --tag --all --push",
+    "release-major": "bump --major --commit --tag --all --push"
+  },
+  "author": {
+    "name": "Denis Sikuler"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gamtiq/weekstart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gamtiq/weekstart/issues"
+  },
+  "license": "MIT"
+}

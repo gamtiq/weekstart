@@ -1,0 +1,29 @@
+{
+  "name": "weekstart",
+  "main": [
+    "dist/weekstart.js"
+  ],
+  "version": "0.1.0",
+  "homepage": "https://github.com/gamtiq/weekstart",
+  "authors": [
+    "Denis Sikuler"
+  ],
+  "description": "Library to get first day of week.",
+  "keywords": [
+    "week",
+    "start",
+    "first",
+    "day",
+    "locale",
+    "country",
+    "region"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
