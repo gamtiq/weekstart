@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>weekstart Source: api.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">weekstart</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-api.html">api</a></li><li><a href="module-full.html">full</a></li><li><a href="module-fullLangRegionMap.html">fullLangRegionMap</a></li><li><a href="module-langRegionMap.html">langRegionMap</a></li><li><a href="module-main.html">main</a></li><li><a href="module-regionDayMap.html">regionDayMap</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: api.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * Functions to get first day of week.
+ * 
+ * @module api
+ */
+
+
+/**
+ * Return first day of week for country/region code.
+ *
+ * @example
+ * getWeekStartByRegion('PNG', {});   // 1
+ * getWeekStartByRegion('png', {BR: 0, PNG: 3, EG: 6});   // 3
+ * getWeekStartByRegion('qa', {QA: 6});   // 6
+ * getWeekStartByRegion(50, {BD: 5, 50: 5, SD: 6});   // 5
+ *
+ * @param {number | string} regionCode
+ *      ISO 3166 Alpha-2, Alpha-3 or numeric code.
+ * @param {object} regionDayMap
+ *      Mapping of country/region code to first day of week that should be used to get result.
+ *      Country codes should be in upper case.
+ * @return {number}
+ *      Code of first day of week for the given country/region code:
+ *      0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.
+ * @alias module:api.getWeekStartByRegion
+ */
+export function getWeekStartByRegion(regionCode, regionDayMap) {
+    /* eslint-disable indent */
+    const code = regionDayMap[typeof regionCode === 'string'
+                                ? regionCode.toUpperCase()
+                                : regionCode];
+    /* eslint-enable indent */
+
+    return typeof code === 'number'
+        ? code
+        : 1;
+}
+
+/**
+ * Return first day of week for locale identifier.
+ *
+ * @example
+ * getWeekStartByLocale('no', {}, {});   // 1
+ * getWeekStartByLocale('no', {no: 'abc'}, {ABC: 3});   // 3
+ * getWeekStartByLocale('KK_arab', {kk_arab: 'CN'}, {CN: 0});   // 0
+ * getWeekStartByLocale('fr-DZ', {fr: 'FR'}, {FR: 1, DZ: 6});   // 6
+ *
+ * @param {string} locale
+ *      Locale identifier.
+ * @param {object} langRegionMap
+ *      Mapping of language code to country/region code that should be used to get result.
+ *      Language codes should be in lower case.
+ * @param {object} regionDayMap
+ *      Mapping of country/region code to first day of week that should be used to get result.
+ *      Country codes should be in upper case.
+ * @return {number}
+ *      Code of first day of week for the given locale identifier:
+ *      0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.
+ * @alias module:api.getWeekStartByLocale
+ */
+export function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
+    if (locale) {
+        // Locale form: http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers
+        const data = locale.toLowerCase().split(/[-_]/);
+        let language = data[0];
+        let country;
+        if (data[1] &amp;&amp; data[1].length === 4) {
+            language += `_${data[1]}`;
+            country = data[2];
+        }
+        else {
+            country = data[1];
+        }
+        if (! country) {
+            country = langRegionMap[language];
+        }
+        if (country) {
+            return getWeekStartByRegion(
+                country.match(/^\d+$/)
+                    ? Number(country)
+                    : country,
+                regionDayMap
+            );
+        }
+    }
+
+    return 1;
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright (c) 2017-2018 Denis Sikuler
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a>
+	
+		on 2018-01-20T17:29:44+03:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
