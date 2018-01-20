@@ -8,8 +8,11 @@ getWeekStartByRegion('MAC');   // 0
 getWeekStartByLocale('ary');   // 6
 ```
 
+There are 2 variants of the library having identical [API](#api):
+* `main` - uses base mapping of language code to country code from [langRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js).
+* `full` - uses full mapping of language code to country code from [fullLangRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js).
+
 [![NPM version](https://badge.fury.io/js/weekstart.png)](http://badge.fury.io/js/weekstart)
-[![Build Status](https://secure.travis-ci.org/gamtiq/weekstart.png?branch=master)](http://travis-ci.org/gamtiq/weekstart)
 
 ## Table of contents
 
@@ -30,9 +33,10 @@ getWeekStartByLocale('ary');   // 6
 
     bower install weekstart
 
-### AMD, &lt;script&gt;
+### AMD/UMD, &lt;script&gt;
 
-Use `dist/weekstart.js` or `dist/weekstart.min.js` (minified version).
+Use `dist/main.js` or `dist/min/main.js` (minified version).
+Use `dist/full.js` or `dist/min/full.js` (minified version) when you need full locale data.
 
 ## Usage <a name="usage"></a> [&#x2191;](#start)
 
@@ -42,11 +46,24 @@ Use `dist/weekstart.js` or `dist/weekstart.min.js` (minified version).
 import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart';
 ```
 
+If you need full data:
+
+```js
+import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart/full';
+```
+
 ### Node
 
 ```js
 const getWeekStartByLocale = require('weekstart').getWeekStartByLocale;
 const getWeekStartByRegion = require('weekstart').getWeekStartByRegion;
+```
+
+If you need full data:
+
+```js
+const getWeekStartByLocale = require('weekstart/full').getWeekStartByLocale;
+const getWeekStartByRegion = require('weekstart/full').getWeekStartByRegion;
 ```
 
 ### [Duo](http://duojs.org)
@@ -56,10 +73,26 @@ const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
 const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;
 ```
 
-### AMD
+If you need full data:
 
 ```js
-define(['path/to/dist/weekstart.js'], function(weekstart) {
+const getWeekStartByLocale = require('gamtiq/weekstart/full').getWeekStartByLocale;
+const getWeekStartByRegion = require('gamtiq/weekstart/full').getWeekStartByRegion;
+```
+
+### AMD/UMD
+
+```js
+define(['path/to/dist/main.js'], function(weekstart) {
+    const getWeekStartByLocale = weekstart.getWeekStartByLocale;
+    const getWeekStartByRegion = weekstart.getWeekStartByRegion;
+});
+```
+
+If you need full data:
+
+```js
+define(['path/to/dist/full.js'], function(weekstart) {
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
 });
@@ -68,14 +101,16 @@ define(['path/to/dist/weekstart.js'], function(weekstart) {
 ### Bower, &lt;script&gt;
 
 ```html
-<!-- Use bower_components/weekstart/dist/weekstart.js and bower_components/weekstart/dist/extra.js if the library was installed by Bower -->
-<script type="text/javascript" src="path/to/dist/weekstart.js"></script>
+<!-- Use bower_components/weekstart/dist/main.js and bower_components/weekstart/dist/full.js if the library was installed by Bower -->
+<script type="text/javascript" src="path/to/dist/main.js"></script>
 <script type="text/javascript">
     // weekstart is available via weekstart field of window object
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
 </script>
 ```
+
+If you need full data use `path/to/dist/full.js` instead of `path/to/dist/main.js`.
 
 ### Examples <a name="examples"></a> [&#x2191;](#start)
 
@@ -87,11 +122,17 @@ getWeekStartByRegion(50);   // 5
 
 getWeekStartByLocale('Jam');   // 0
 getWeekStartByLocale('Fa');   // 6
-getWeekStartByLocale('CCP');   // 5
 getWeekStartByLocale('vi');   // 1
-getWeekStartByLocale('UZ-arab');   // 6
 getWeekStartByLocale('es_MX');   // 0
 getWeekStartByLocale('az-Arab-IRN');   // 6
+```
+
+In the following examples results are given for the function from `full.js`.
+The same calls for the function from `main.js` will return `1`.
+
+```js
+getWeekStartByLocale('CCP');   // 5
+getWeekStartByLocale('UZ-arab');   // 6
 ```
 
 ## API <a name="api"></a> [&#x2191;](#start)
@@ -114,5 +155,5 @@ Add unit tests for any new or changed functionality.
 Lint and test your code.
 
 ## License <a name="license"></a> [&#x2191;](#start)
-Copyright (c) 2017 Denis Sikuler  
+Copyright (c) 2017-2018 Denis Sikuler  
 Licensed under the MIT license.

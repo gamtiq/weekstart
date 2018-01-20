@@ -18,7 +18,7 @@
     "templates": {
         "outputSourceFiles": true,
         "systemName": "weekstart",
-        "copyright": "Copyright (c) 2017 Denis Sikuler",
+        "copyright": "Copyright (c) 2017-2018 Denis Sikuler",
         "theme": "spacelab",
         "linenums": true
     }

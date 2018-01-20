@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-weekstart.html">weekstart</a></li>
+					<li><a href="module-api.html">api</a></li><li><a href="module-full.html">full</a></li><li><a href="module-fullLangRegionMap.html">fullLangRegionMap</a></li><li><a href="module-langRegionMap.html">langRegionMap</a></li><li><a href="module-main.html">main</a></li><li><a href="module-regionDayMap.html">regionDayMap</a></li>
 				</ul>
 			</li>
 			
@@ -89,8 +89,12 @@
         <article><h1>weekstart <a name="start"></a></h1><p>Library to get first day of week.</p>
 <pre class="prettyprint source lang-js"><code>getWeekStartByRegion('MAC');   // 0
 
-getWeekStartByLocale('ary');   // 6</code></pre><p><a href="http://badge.fury.io/js/weekstart"><img src="https://badge.fury.io/js/weekstart.png" alt="NPM version"></a>
-<a href="http://travis-ci.org/gamtiq/weekstart"><img src="https://secure.travis-ci.org/gamtiq/weekstart.png?branch=master" alt="Build Status"></a></p>
+getWeekStartByLocale('ary');   // 6</code></pre><p>There are 2 variants of the library having identical <a href="#api">API</a>:</p>
+<ul>
+<li><code>main</code> - uses base mapping of language code to country code from <a href="https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js">langRegionMap</a>.</li>
+<li><code>full</code> - uses full mapping of language code to country code from <a href="https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js">fullLangRegionMap</a>.</li>
+</ul>
+<p><a href="http://badge.fury.io/js/weekstart"><img src="https://badge.fury.io/js/weekstart.png" alt="NPM version"></a></p>
 <h2>Table of contents</h2><ul>
 <li><a href="#install">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
@@ -99,30 +103,42 @@ getWeekStartByLocale('ary');   // 6</code></pre><p><a href="http://badge.fury.io
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 </ul>
-<h2>Installation <a name="install"></a> <a href="#start">&#x2191;</a></h2><h3>Node</h3><pre class="prettyprint source"><code>npm install weekstart</code></pre><h3><a href="http://bower.io">Bower</a></h3><pre class="prettyprint source"><code>bower install weekstart</code></pre><h3>AMD, &lt;script&gt;</h3><p>Use <code>dist/weekstart.js</code> or <code>dist/weekstart.min.js</code> (minified version).</p>
-<h2>Usage <a name="usage"></a> <a href="#start">&#x2191;</a></h2><h3>ECMAScript 6</h3><pre class="prettyprint source lang-js"><code>import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart';</code></pre><h3>Node</h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('weekstart').getWeekStartByLocale;
-const getWeekStartByRegion = require('weekstart').getWeekStartByRegion;</code></pre><h3><a href="http://duojs.org">Duo</a></h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
-const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;</code></pre><h3>AMD</h3><pre class="prettyprint source lang-js"><code>define(['path/to/dist/weekstart.js'], function(weekstart) {
+<h2>Installation <a name="install"></a> <a href="#start">&#x2191;</a></h2><h3>Node</h3><pre class="prettyprint source"><code>npm install weekstart</code></pre><h3><a href="http://bower.io">Bower</a></h3><pre class="prettyprint source"><code>bower install weekstart</code></pre><h3>AMD/UMD, &lt;script&gt;</h3><p>Use <code>dist/main.js</code> or <code>dist/min/main.js</code> (minified version).
+Use <code>dist/full.js</code> or <code>dist/min/full.js</code> (minified version) when you need full locale data.</p>
+<h2>Usage <a name="usage"></a> <a href="#start">&#x2191;</a></h2><h3>ECMAScript 6</h3><pre class="prettyprint source lang-js"><code>import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart';</code></pre><p>If you need full data:</p>
+<pre class="prettyprint source lang-js"><code>import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart/full';</code></pre><h3>Node</h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('weekstart').getWeekStartByLocale;
+const getWeekStartByRegion = require('weekstart').getWeekStartByRegion;</code></pre><p>If you need full data:</p>
+<pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('weekstart/full').getWeekStartByLocale;
+const getWeekStartByRegion = require('weekstart/full').getWeekStartByRegion;</code></pre><h3><a href="http://duojs.org">Duo</a></h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
+const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;</code></pre><p>If you need full data:</p>
+<pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('gamtiq/weekstart/full').getWeekStartByLocale;
+const getWeekStartByRegion = require('gamtiq/weekstart/full').getWeekStartByRegion;</code></pre><h3>AMD/UMD</h3><pre class="prettyprint source lang-js"><code>define(['path/to/dist/main.js'], function(weekstart) {
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
-});</code></pre><h3>Bower, &lt;script&gt;</h3><pre class="prettyprint source lang-html"><code>&lt;!-- Use bower_components/weekstart/dist/weekstart.js and bower_components/weekstart/dist/extra.js if the library was installed by Bower -->
-&lt;script type=&quot;text/javascript&quot; src=&quot;path/to/dist/weekstart.js&quot;>&lt;/script>
+});</code></pre><p>If you need full data:</p>
+<pre class="prettyprint source lang-js"><code>define(['path/to/dist/full.js'], function(weekstart) {
+    const getWeekStartByLocale = weekstart.getWeekStartByLocale;
+    const getWeekStartByRegion = weekstart.getWeekStartByRegion;
+});</code></pre><h3>Bower, &lt;script&gt;</h3><pre class="prettyprint source lang-html"><code>&lt;!-- Use bower_components/weekstart/dist/main.js and bower_components/weekstart/dist/full.js if the library was installed by Bower -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;path/to/dist/main.js&quot;>&lt;/script>
 &lt;script type=&quot;text/javascript&quot;>
     // weekstart is available via weekstart field of window object
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
-&lt;/script></code></pre><h3>Examples <a name="examples"></a> <a href="#start">&#x2191;</a></h3><pre class="prettyprint source lang-js"><code>getWeekStartByRegion('dj');   // 6
+&lt;/script></code></pre><p>If you need full data use <code>path/to/dist/full.js</code> instead of <code>path/to/dist/main.js</code>.</p>
+<h3>Examples <a name="examples"></a> <a href="#start">&#x2191;</a></h3><pre class="prettyprint source lang-js"><code>getWeekStartByRegion('dj');   // 6
 getWeekStartByRegion('No');   // 1
 getWeekStartByRegion('CAN');   // 0
 getWeekStartByRegion(50);   // 5
 
 getWeekStartByLocale('Jam');   // 0
 getWeekStartByLocale('Fa');   // 6
-getWeekStartByLocale('CCP');   // 5
 getWeekStartByLocale('vi');   // 1
-getWeekStartByLocale('UZ-arab');   // 6
 getWeekStartByLocale('es_MX');   // 0
-getWeekStartByLocale('az-Arab-IRN');   // 6</code></pre><h2>API <a name="api"></a> <a href="#start">&#x2191;</a></h2><h4>getWeekStartByLocale(locale): number</h4><p>Return first day of week for locale identifier:
+getWeekStartByLocale('az-Arab-IRN');   // 6</code></pre><p>In the following examples results are given for the function from <code>full.js</code>.
+The same calls for the function from <code>main.js</code> will return <code>1</code>.</p>
+<pre class="prettyprint source lang-js"><code>getWeekStartByLocale('CCP');   // 5
+getWeekStartByLocale('UZ-arab');   // 6</code></pre><h2>API <a name="api"></a> <a href="#start">&#x2191;</a></h2><h4>getWeekStartByLocale(locale): number</h4><p>Return first day of week for locale identifier:
 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.</p>
 <h4>getWeekStartByRegion(regionCode): number</h4><p>Return first day of week for country/region code:
 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.</p>
@@ -130,7 +146,7 @@ getWeekStartByLocale('az-Arab-IRN');   // 6</code></pre><h2>API <a name="api"></
 <h2>Contributing <a name="contributing"></a> <a href="#start">&#x2191;</a></h2><p>In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit tests for any new or changed functionality.
 Lint and test your code.</p>
-<h2>License <a name="license"></a> <a href="#start">&#x2191;</a></h2><p>Copyright (c) 2017 Denis Sikuler<br>Licensed under the MIT license.</p></article>
+<h2>License <a name="license"></a> <a href="#start">&#x2191;</a></h2><p>Copyright (c) 2017-2018 Denis Sikuler<br>Licensed under the MIT license.</p></article>
     </section>
 
 
@@ -174,13 +190,13 @@ Lint and test your code.</p>
 
 
 	<span class="copyright">
-	Copyright (c) 2017 Denis Sikuler
+	Copyright (c) 2017-2018 Denis Sikuler
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a>
 	
-		on 2017-09-07T22:47:37+03:00
+		on 2018-01-20T17:29:44+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

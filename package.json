@@ -1,9 +1,11 @@
 {
   "name": "weekstart",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Library to get first day of week.",
   "homepage": "https://github.com/gamtiq/weekstart",
-  "main": "dist/commonjs/weekstart.js",
+  "main": "dist/commonjs/main.js",
+  "module": "dist/es-module/main.js",
+  "umd:main": "dist/main.js",
   "keywords": [
     "week",
     "start",
@@ -14,17 +16,13 @@
     "region"
   ],
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
-    "babel-plugin-transform-es2015-modules-umd": "6.24.1",
     "babel-preset-es2015": "6.24.1",
-    "cross-env": "5.0.5",
     "eslint": "4.5.0",
     "eslint-config-guard": "0.3.0",
     "ink-docstrap": "1.3.0",
     "jest": "20.0.4",
     "jsdoc": "3.5.4",
-    "uglify-js": "3.0.28",
+    "microbundle": "0.3.1",
     "version-bump-prompt": "3.1.2"
   },
   "scripts": {
@@ -36,10 +34,11 @@
     "check": "npm run lint && npm test",
     "check-all": "npm run lint-all && npm test",
     "doc": "jsdoc -c jsdoc-conf.json",
-    "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --ignore test.js --out-dir dist/commonjs --source-maps",
-    "build-umd": "cross-env BABEL_ENV=umd babel src --ignore test.js --out-dir dist --source-maps",
-    "minify": "uglifyjs dist/weekstart.js --output dist/weekstart.min.js --compress --mangle --source-map content=\"dist/weekstart.js.map\",url=weekstart.min.js.map",
-    "build": "npm run build-commonjs && npm run build-umd && npm run minify",
+    "build-commonjs": "microbundle build src/main.js src/full.js src/api.js src/fullLangRegionMap.js src/langRegionMap.js src/regionDayMap.js --output dist/commonjs --format cjs --strict --no-compress",
+    "build-esm": "microbundle build src/main.js src/full.js src/api.js src/fullLangRegionMap.js src/langRegionMap.js src/regionDayMap.js --output dist/es-module --format es --no-compress",
+    "build-umd": "microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress",
+    "build-umd-min": "microbundle build src/main.js src/full.js --output dist/min --format umd --strict",
+    "build": "npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min",
     "all": "npm run check-all && npm run doc && npm run build",
     "release": "bump --patch --commit --tag --all --push",
     "release-minor": "bump --minor --commit --tag --all --push",

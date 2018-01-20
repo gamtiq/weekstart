@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
-import * as api from '../src/weekstart';
+import * as api from './full';
 
-describe('weekstart', function weekstartTestSuite() {
+describe('full', function fullTestSuite() {
 
     /* eslint-disable no-magic-numbers */
 
