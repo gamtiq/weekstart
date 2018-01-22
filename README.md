@@ -8,9 +8,20 @@ getWeekStartByRegion('MAC');   // 0
 getWeekStartByLocale('ary');   // 6
 ```
 
+The library is based on the following data from Unicode (especially from Common Locale Data Repository) and from ISO:
+* [https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json)
+* [http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html](http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html)
+* [http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html](http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html)
+* [http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html](http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html)
+* [http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers](http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers)
+* [https://www.iso.org/iso-3166-country-codes.html](https://www.iso.org/iso-3166-country-codes.html)
+
 There are 2 variants of the library having identical [API](#api):
 * `main` - uses base mapping of language code to country code from [langRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js).
 * `full` - uses full mapping of language code to country code from [fullLangRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js).
+
+[langRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js) contains only main language codes.
+It is data subset from [fullLangRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js).
 
 [![NPM version](https://badge.fury.io/js/weekstart.png)](http://badge.fury.io/js/weekstart)
 
