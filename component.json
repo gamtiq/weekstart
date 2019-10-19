@@ -2,7 +2,7 @@
   "name": "weekstart",
   "repository": "gamtiq/weekstart",
   "description": "Library to get first day of week.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "week",
     "start",

@@ -40,7 +40,7 @@
     "build-umd-min": "microbundle build src/main.js src/full.js --output dist/min --format umd --strict",
     "build": "npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min",
     "all": "npm run check-all && npm run doc && npm run build",
-    "release": "bump patch --commit --tag --all --push package.json package-lock.json bower.json",
+    "release": "bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json",
     "release-minor": "bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json",
     "release-major": "bump major --commit --tag --all --push package.json package-lock.json bower.json component.json"
   },
