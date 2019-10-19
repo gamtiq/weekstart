@@ -1,6 +1,6 @@
 {
   "name": "weekstart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library to get first day of week.",
   "homepage": "https://github.com/gamtiq/weekstart",
   "main": "dist/commonjs/main.js",
