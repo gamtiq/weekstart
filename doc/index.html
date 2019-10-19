@@ -89,11 +89,22 @@
         <article><h1>weekstart <a name="start"></a></h1><p>Library to get first day of week.</p>
 <pre class="prettyprint source lang-js"><code>getWeekStartByRegion('MAC');   // 0
 
-getWeekStartByLocale('ary');   // 6</code></pre><p>There are 2 variants of the library having identical <a href="#api">API</a>:</p>
+getWeekStartByLocale('ary');   // 6</code></pre><p>The library is based on the following data from Unicode (especially from Common Locale Data Repository) and from ISO:</p>
+<ul>
+<li><a href="https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json">https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html">http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html">http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html">http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html</a></li>
+<li><a href="http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers">http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers</a></li>
+<li><a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a></li>
+</ul>
+<p>There are 2 variants of the library having identical <a href="#api">API</a>:</p>
 <ul>
 <li><code>main</code> - uses base mapping of language code to country code from <a href="https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js">langRegionMap</a>.</li>
 <li><code>full</code> - uses full mapping of language code to country code from <a href="https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js">fullLangRegionMap</a>.</li>
 </ul>
+<p><a href="https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js">langRegionMap</a> contains only main language codes.
+It is data subset from <a href="https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js">fullLangRegionMap</a>.</p>
 <p><a href="http://badge.fury.io/js/weekstart"><img src="https://badge.fury.io/js/weekstart.png" alt="NPM version"></a></p>
 <h2>Table of contents</h2><ul>
 <li><a href="#install">Installation</a></li>
@@ -109,10 +120,7 @@ Use <code>dist/full.js</code> or <code>dist/min/full.js</code> (minified version
 <pre class="prettyprint source lang-js"><code>import {getWeekStartByLocale, getWeekStartByRegion} from 'weekstart/full';</code></pre><h3>Node</h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('weekstart').getWeekStartByLocale;
 const getWeekStartByRegion = require('weekstart').getWeekStartByRegion;</code></pre><p>If you need full data:</p>
 <pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('weekstart/full').getWeekStartByLocale;
-const getWeekStartByRegion = require('weekstart/full').getWeekStartByRegion;</code></pre><h3><a href="http://duojs.org">Duo</a></h3><pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
-const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;</code></pre><p>If you need full data:</p>
-<pre class="prettyprint source lang-js"><code>const getWeekStartByLocale = require('gamtiq/weekstart/full').getWeekStartByLocale;
-const getWeekStartByRegion = require('gamtiq/weekstart/full').getWeekStartByRegion;</code></pre><h3>AMD/UMD</h3><pre class="prettyprint source lang-js"><code>define(['path/to/dist/main.js'], function(weekstart) {
+const getWeekStartByRegion = require('weekstart/full').getWeekStartByRegion;</code></pre><h3>AMD/UMD</h3><pre class="prettyprint source lang-js"><code>define(['path/to/dist/main.js'], function(weekstart) {
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
 });</code></pre><p>If you need full data:</p>
@@ -126,7 +134,7 @@ const getWeekStartByRegion = require('gamtiq/weekstart/full').getWeekStartByRegi
     const getWeekStartByLocale = weekstart.getWeekStartByLocale;
     const getWeekStartByRegion = weekstart.getWeekStartByRegion;
 &lt;/script></code></pre><p>If you need full data use <code>path/to/dist/full.js</code> instead of <code>path/to/dist/main.js</code>.</p>
-<h3>Examples <a name="examples"></a> <a href="#start">&#x2191;</a></h3><pre class="prettyprint source lang-js"><code>getWeekStartByRegion('dj');   // 6
+<h2>Examples <a name="examples"></a> <a href="#start">&#x2191;</a></h2><pre class="prettyprint source lang-js"><code>getWeekStartByRegion('dj');   // 6
 getWeekStartByRegion('No');   // 1
 getWeekStartByRegion('CAN');   // 0
 getWeekStartByRegion(50);   // 5
@@ -146,7 +154,7 @@ getWeekStartByLocale('UZ-arab');   // 6</code></pre><h2>API <a name="api"></a> <
 <h2>Contributing <a name="contributing"></a> <a href="#start">&#x2191;</a></h2><p>In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit tests for any new or changed functionality.
 Lint and test your code.</p>
-<h2>License <a name="license"></a> <a href="#start">&#x2191;</a></h2><p>Copyright (c) 2017-2018 Denis Sikuler<br>Licensed under the MIT license.</p></article>
+<h2>License <a name="license"></a> <a href="#start">&#x2191;</a></h2><p>Licensed under the <a href="https://github.com/gamtiq/weekstart/blob/master/LICENSE">MIT license</a>.</p></article>
     </section>
 
 
@@ -190,13 +198,11 @@ Lint and test your code.</p>
 
 
 	<span class="copyright">
-	Copyright (c) 2017-2018 Denis Sikuler
+	Copyright (c) 2017-present Denis Sikuler
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a>
-	
-		on 2018-01-20T17:29:44+03:00
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

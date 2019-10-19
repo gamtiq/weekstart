@@ -1,4 +1,4 @@
-import { getWeekStartByLocale, getWeekStartByRegion } from './api.js';
+import { getWeekStartByRegion, getWeekStartByLocale } from './api.js';
 import langRegionMap from './langRegionMap.js';
 import regionDayMap from './regionDayMap.js';
 

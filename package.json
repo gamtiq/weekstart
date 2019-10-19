@@ -16,14 +16,14 @@
     "region"
   ],
   "devDependencies": {
-    "babel-preset-es2015": "6.24.1",
-    "eslint": "4.5.0",
-    "eslint-config-guard": "0.3.0",
-    "ink-docstrap": "1.3.0",
-    "jest": "20.0.4",
-    "jsdoc": "3.5.4",
-    "microbundle": "0.3.1",
-    "version-bump-prompt": "3.1.2"
+    "@babel/preset-env": "7.6.3",
+    "eslint": "6.5.1",
+    "eslint-config-guard": "1.0.3",
+    "ink-docstrap": "1.3.2",
+    "jest": "24.9.0",
+    "jsdoc": "3.6.3",
+    "microbundle": "0.4.4",
+    "version-bump-prompt": "5.0.5"
   },
   "scripts": {
     "lint": "eslint --cache --max-warnings 0 \"**/*.js\"",
@@ -34,15 +34,15 @@
     "check": "npm run lint && npm test",
     "check-all": "npm run lint-all && npm test",
     "doc": "jsdoc -c jsdoc-conf.json",
-    "build-commonjs": "microbundle build src/main.js src/full.js src/api.js src/fullLangRegionMap.js src/langRegionMap.js src/regionDayMap.js --output dist/commonjs --format cjs --strict --no-compress",
-    "build-esm": "microbundle build src/main.js src/full.js src/api.js src/fullLangRegionMap.js src/langRegionMap.js src/regionDayMap.js --output dist/es-module --format es --no-compress",
+    "build-commonjs": "microbundle build \"src/!(*.test).js\" --output dist/commonjs --format cjs --strict --no-compress",
+    "build-esm": "microbundle build \"src/!(*.test).js\" --output dist/es-module --format es --no-compress",
     "build-umd": "microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress",
     "build-umd-min": "microbundle build src/main.js src/full.js --output dist/min --format umd --strict",
     "build": "npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min",
     "all": "npm run check-all && npm run doc && npm run build",
-    "release": "bump --patch --commit --tag --all --push",
-    "release-minor": "bump --minor --commit --tag --all --push",
-    "release-major": "bump --major --commit --tag --all --push"
+    "release": "bump patch --commit --tag --all --push package.json package-lock.json bower.json",
+    "release-minor": "bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json",
+    "release-major": "bump major --commit --tag --all --push package.json package-lock.json bower.json component.json"
   },
   "author": {
     "name": "Denis Sikuler"
