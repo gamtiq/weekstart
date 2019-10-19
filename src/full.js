@@ -1,9 +1,6 @@
 /*
  * weekstart
  * https://github.com/gamtiq/weekstart
- *
- * Copyright (c) 2017-2018 Denis Sikuler
- * Licensed under the MIT license.
  */
 
 /**

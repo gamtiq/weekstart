@@ -77,20 +77,6 @@ const getWeekStartByLocale = require('weekstart/full').getWeekStartByLocale;
 const getWeekStartByRegion = require('weekstart/full').getWeekStartByRegion;
 ```
 
-### [Duo](http://duojs.org)
-
-```js
-const getWeekStartByLocale = require('gamtiq/weekstart').getWeekStartByLocale;
-const getWeekStartByRegion = require('gamtiq/weekstart').getWeekStartByRegion;
-```
-
-If you need full data:
-
-```js
-const getWeekStartByLocale = require('gamtiq/weekstart/full').getWeekStartByLocale;
-const getWeekStartByRegion = require('gamtiq/weekstart/full').getWeekStartByRegion;
-```
-
 ### AMD/UMD
 
 ```js
@@ -123,7 +109,7 @@ define(['path/to/dist/full.js'], function(weekstart) {
 
 If you need full data use `path/to/dist/full.js` instead of `path/to/dist/main.js`.
 
-### Examples <a name="examples"></a> [&#x2191;](#start)
+## Examples <a name="examples"></a> [&#x2191;](#start)
 
 ```js
 getWeekStartByRegion('dj');   // 6
@@ -166,5 +152,4 @@ Add unit tests for any new or changed functionality.
 Lint and test your code.
 
 ## License <a name="license"></a> [&#x2191;](#start)
-Copyright (c) 2017-2018 Denis Sikuler  
-Licensed under the MIT license.
+Licensed under the [MIT license](https://github.com/gamtiq/weekstart/blob/master/LICENSE).
