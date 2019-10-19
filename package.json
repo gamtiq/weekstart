@@ -54,5 +54,6 @@
   "bugs": {
     "url": "https://github.com/gamtiq/weekstart/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "types": "./index.d.ts"
 }
