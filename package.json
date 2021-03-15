@@ -6,6 +6,11 @@
   "main": "dist/commonjs/main.js",
   "module": "dist/es-module/main.js",
   "umd:main": "dist/main.js",
+  "files": [
+    "dist",
+    "full.js",
+    "full.d.ts"
+  ],
   "keywords": [
     "week",
     "start",
