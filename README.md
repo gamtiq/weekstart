@@ -1,5 +1,7 @@
 # weekstart <a name="start"></a>
 
+[![NPM version](https://badge.fury.io/js/weekstart.png)](http://badge.fury.io/js/weekstart)
+
 Library to get first day of week.
 
 ```js
@@ -22,8 +24,6 @@ There are 2 variants of the library having identical [API](#api):
 
 [langRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/langRegionMap.js) contains only main language codes.
 It is data subset from [fullLangRegionMap](https://github.com/gamtiq/weekstart/blob/master/src/fullLangRegionMap.js).
-
-[![NPM version](https://badge.fury.io/js/weekstart.png)](http://badge.fury.io/js/weekstart)
 
 ## Table of contents
 
@@ -144,7 +144,7 @@ Return first day of week for locale identifier:
 Return first day of week for country/region code:
 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday.
 
-See `doc` folder for details.
+See [`docs`](https://gamtiq.github.io/weekstart/) for details.
 
 ## Contributing <a name="contributing"></a> [&#x2191;](#start)
 In lieu of a formal styleguide, take care to maintain the existing coding style.

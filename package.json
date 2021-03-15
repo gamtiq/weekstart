@@ -30,6 +30,7 @@
     "ink-docstrap": "1.3.2",
     "jest": "^26.6.3",
     "jsdoc": "^3.6.6",
+    "jsdoc-file": "^1.0.1",
     "microbundle": "0.4.4",
     "version-bump-prompt": "^6.1.0"
   },
@@ -41,7 +42,7 @@
     "test": "jest",
     "check": "npm run lint && npm test",
     "check-all": "npm run lint-all && npm test",
-    "doc": "jsdoc -c jsdoc-conf.json",
+    "doc": "jsdoc -c jsdoc-conf.js",
     "build-commonjs": "microbundle build \"src/!(*.test).js\" --output dist/commonjs --format cjs --strict --no-compress",
     "build-esm": "microbundle build \"src/!(*.test).js\" --output dist/es-module --format es --no-compress",
     "build-umd": "microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress",

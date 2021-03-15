@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>weekstart Module: api</title>
+	<title>weekstart Module: main</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -65,7 +65,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: api</h1>
+	<h1 class="page-title">Module: main</h1>
 <section>
 
 <header>
@@ -77,7 +77,9 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Functions to get first day of week.</p></div>
+            <div class="description"><p>Library to get first day of week.</p>
+<p>Uses data from <a href="module-langRegionMap.html">langRegionMap.js</a> and
+<a href="module-regionDayMap.html">regionDayMap.js</a>.</p></div>
         
 
         
@@ -115,8 +117,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="api.js.html">api.js</a>,
-				 <a href="api.js.html#sunlight-1-line-1">line 1</a>
+				<a href="main.js.html">main.js</a>,
+				 <a href="main.js.html#sunlight-1-line-6">line 6</a>
 			</li>
 		</ul>
 	</dd>
@@ -153,7 +155,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".getWeekStartByLocale"><span class="type-signature">&lt;static> </span>getWeekStartByLocale(locale, langRegionMap, regionDayMap)</h4>
+    <h4 class="name" id=".getWeekStartByLocale"><span class="type-signature">&lt;static> </span>getWeekStartByLocale(locale)</h4>
     
     
 </dt>
@@ -162,6 +164,13 @@
     
     <div class="description">
         <p>Return first day of week for locale identifier.</p>
+<p>Based on data from:</p>
+<ul>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html">http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html">http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html">http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html</a></li>
+<li><a href="http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers">http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers</a></li>
+</ul>
     </div>
     
 
@@ -217,56 +226,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>langRegionMap</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Mapping of language code to country/region code that should be used to get result.
-     Language codes should be in lower case.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>regionDayMap</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Mapping of country/region code to first day of week that should be used to get result.
-     Country codes should be in upper case.</p></td>
-        </tr>
-
-    
     </tbody>
 </table>
 
@@ -307,8 +266,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="api.js.html">api.js</a>,
-				 <a href="api.js.html#sunlight-1-line-61">line 61</a>
+				<a href="main.js.html">main.js</a>,
+				 <a href="main.js.html#sunlight-1-line-66">line 66</a>
 			</li>
 		</ul>
 	</dd>
@@ -316,6 +275,13 @@
 
 	
 
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="module-api.html#.getWeekStartByLocale">module:api.getWeekStartByLocale</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -362,7 +328,9 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">getWeekStartByLocale(&#x27;no&#x27;, {}, {});   // 1getWeekStartByLocale(&#x27;no&#x27;, {no: &#x27;abc&#x27;}, {ABC: 3});   // 3getWeekStartByLocale(&#x27;KK_arab&#x27;, {kk_arab: &#x27;CN&#x27;}, {CN: 0});   // 0getWeekStartByLocale(&#x27;fr-DZ&#x27;, {fr: &#x27;FR&#x27;}, {FR: 1, DZ: 6});   // 6</pre>
+    <pre class="sunlight-highlight-javascript">getWeekStartByLocale(&#x27;no&#x27;);   // 1
+getWeekStartByLocale(&#x27;Pa_Guru&#x27;);   // 0
+getWeekStartByLocale(&#x27;fr-DZ&#x27;);   // 6</pre>
 
 
     
@@ -372,7 +340,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".getWeekStartByRegion"><span class="type-signature">&lt;static> </span>getWeekStartByRegion(regionCode, regionDayMap)</h4>
+    <h4 class="name" id=".getWeekStartByRegion"><span class="type-signature">&lt;static> </span>getWeekStartByRegion(regionCode)</h4>
     
     
 </dt>
@@ -381,6 +349,12 @@
     
     <div class="description">
         <p>Return first day of week for country/region code.</p>
+<p>Based on data from:</p>
+<ul>
+<li><a href="https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json">https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json</a></li>
+<li><a href="http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html">http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html</a></li>
+<li><a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a></li>
+</ul>
     </div>
     
 
@@ -439,31 +413,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>regionDayMap</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Mapping of country/region code to first day of week that should be used to get result.
-     Country codes should be in upper case.</p></td>
-        </tr>
-
-    
     </tbody>
 </table>
 
@@ -504,8 +453,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="api.js.html">api.js</a>,
-				 <a href="api.js.html#sunlight-1-line-27">line 27</a>
+				<a href="main.js.html">main.js</a>,
+				 <a href="main.js.html#sunlight-1-line-40">line 40</a>
 			</li>
 		</ul>
 	</dd>
@@ -513,6 +462,13 @@
 
 	
 
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="module-api.html#.getWeekStartByRegion">module:api.getWeekStartByRegion</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -559,7 +515,9 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">getWeekStartByRegion(&#x27;PNG&#x27;, {});   // 1getWeekStartByRegion(&#x27;png&#x27;, {BR: 0, PNG: 3, EG: 6});   // 3getWeekStartByRegion(&#x27;qa&#x27;, {QA: 6});   // 6getWeekStartByRegion(50, {BD: 5, 50: 5, SD: 6});   // 5</pre>
+    <pre class="sunlight-highlight-javascript">getWeekStartByRegion(&#x27;PNG&#x27;);   // 1
+getWeekStartByRegion(&#x27;qa&#x27;);   // 6
+getWeekStartByRegion(50);   // 5</pre>
 
 
     
@@ -617,7 +575,7 @@
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
