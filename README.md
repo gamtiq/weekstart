@@ -11,10 +11,10 @@ getWeekStartByLocale('ary');   // 6
 ```
 
 The library is based on the following data from Unicode (especially from Common Locale Data Repository) and from ISO:
-* [https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/weekData.json)
-* [http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html](http://www.unicode.org/cldr/charts/28/supplemental/territory_information.html)
-* [http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html](http://www.unicode.org/cldr/charts/28/supplemental/territory_language_information.html)
-* [http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html](http://www.unicode.org/cldr/charts/28/supplemental/language_territory_information.html)
+* [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html)
+* [https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json)
+* [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html)
+* [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html)
 * [http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers](http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers)
 * [https://www.iso.org/iso-3166-country-codes.html](https://www.iso.org/iso-3166-country-codes.html)
 
