@@ -1,5 +1,6 @@
 /**
  * Contains full mapping of language code to country code.
+ * Data only for countries which first day of week is not monday.
  * 
  * @module fullLangRegionMap
  */
@@ -8,33 +9,18 @@
 /* eslint-disable camelcase */
 /**
  * Full mapping of language code to country code.
+ * Contains data only for countries which first day of week is not monday.
+ *
+ * Based on:
+ * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html
+ * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html
+ * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html
  */
 const langRegionMap = {
     en: 'US',
     
-    zh: 'CN',
-    zh_hans: 'CN',
-    hans: 'CN',   // script
-    wuu: 'CN',
-    hsn: 'CN',
-    hak: 'CN',
-    nan: 'CN',
-    gan: 'CN',
-    ii: 'CN',
-    ug: 'CN',
-    ug_arab: 'CN',
-    za: 'CN',
-    mn_mong: 'CN',
-    bo: 'CN',
-    kk_arab: 'CN',
-    lis: 'CN',
-    ky_arab: 'CN',
-    nxq: 'CN',
-    tdd: 'CN',
-    khb: 'CN',
-    lcp: 'CN',
-    
     hi: 'IN',
+    deva: 'IN',   // script
     te: 'IN',
     mr: 'IN',
     ta: 'IN',
@@ -42,7 +28,7 @@ const langRegionMap = {
     kn: 'IN',
     or: 'IN',
     ml: 'IN',
-    pa_guru: 'IN',
+    pa: 'IN',
     bho: 'IN',
     awa: 'IN',
     as: 'IN',
@@ -56,14 +42,12 @@ const langRegionMap = {
     sat: 'IN',
     wtm: 'IN',
     ks: 'IN',
-    ks_arab: 'IN',
     kok: 'IN',
     gom: 'IN',
     swv: 'IN',
     lmn: 'IN',
     gbm: 'IN',
     gon: 'IN',
-    gon_telu: 'IN',
     kfy: 'IN',
     kru: 'IN',
     doi: 'IN',
@@ -81,20 +65,19 @@ const langRegionMap = {
     hoc: 'IN',
     mtr: 'IN',
     unr: 'IN',
-    unr_beng: 'IN',
     bhi: 'IN',
     hoj: 'IN',
     kha: 'IN',
     kfr: 'IN',
     grt: 'IN',
     unx: 'IN',
-    unx_beng: 'IN',
     bfy: 'IN',
     srx: 'IN',
     saz: 'IN',
     sd_deva: 'IN',
+    ccp: 'IN',
     njo: 'IN',
-    bjq: 'IN',
+    bfq: 'IN',
     ria: 'IN',
     bpy: 'IN',
     bra: 'IN',
@@ -102,23 +85,32 @@ const langRegionMap = {
     sa: 'IN',
     kht: 'IN',
 
+    bn: 'BD',
+    beng: 'BD',   // script
+    rkt: 'BD',
+    syl: 'BD',
+    mro: 'BD',
+
     kgp: 'BR',
     gub: 'BR',
     yrl: 'BR',
     xav: 'BR',
 
     dz: 'BT',
+    tibt: 'BT',   // script
+    tsj: 'BT',
 
     tn: 'BW',
 
     pdt: 'CA',
     crk: 'CA',
     cr: 'CA',
-    cr_cans: 'CA',
     iu: 'CA',
-    iu_cans: 'CA',
-    iu_latn: 'CA',
+    oj: 'CA',
+    ojs: 'CA',
     moe: 'CA',
+    mic: 'CA',
+    bla: 'CA',
     crj: 'CA',
     atj: 'CA',
     crl: 'CA',
@@ -128,7 +120,13 @@ const langRegionMap = {
     moh: 'CA',
     dgr: 'CA',
     den: 'CA',
-    scs: 'CA',
+    clc: 'CA',
+    hur: 'CA',
+    crg: 'CA',
+    lil: 'CA',
+    oka: 'CA',
+    pqm: 'CA',
+    kwk: 'CA',
     nsk: 'CA',
     chp: 'CA',
     gwi: 'CA',
@@ -136,6 +134,7 @@ const langRegionMap = {
     guc: 'CO',
 
     am: 'ET',
+    ethi: 'ET',   // script
     om: 'ET',
     ti: 'ET',
     sid: 'ET',
@@ -175,14 +174,14 @@ const langRegionMap = {
     sly: 'ID',
     mwv: 'ID',
 
-    ga: 'IE',
-
     he: 'IL',
+    hebr: 'IL',   // script
     lad: 'IL',
 
     jam: 'JM',
 
     ja: 'JP',
+    jpan: 'JP',   // script
     ryu: 'JP',
 
     ki: 'KE',
@@ -198,18 +197,24 @@ const langRegionMap = {
     saq: 'KE',
 
     km: 'KH',
+    khmr: 'KH',   // script
     cja: 'KH',
 
     ko: 'KR',
+    kore: 'KR',   // script
 
     lo: 'LA',
+    laoo: 'LA',   // script
     kjg: 'LA',
+    hnj: 'LA',
 
     mh: 'MH',
 
     my: 'MM',
+    mymr: 'MM',   // script
     shn: 'MM',
     kac: 'MM',
+    rhg: 'MM',
     mnw: 'MM',
 
     mt: 'MT',
@@ -232,6 +237,7 @@ const langRegionMap = {
     ne: 'NP',
     'new': 'NP',
     jml: 'NP',
+    dty: 'NP',
     taj: 'NP',
     thl: 'NP',
     bap: 'NP',
@@ -239,7 +245,6 @@ const langRegionMap = {
     thr: 'NP',
     mgp: 'NP',
     lif: 'NP',
-    lif_deva: 'NP',
     thq: 'NP',
     mrd: 'NP',
     xsr: 'NP',
@@ -251,8 +256,6 @@ const langRegionMap = {
     tdh: 'NP',
     unr_deva: 'NP',
 
-    mi: 'NZ',
-
     qu: 'PE',
 
     fil: 'PH',
@@ -261,8 +264,8 @@ const langRegionMap = {
     hil: 'PH',
     bik: 'PH',
     war: 'PH',
+    fbl: 'PH',
     pam: 'PH',
-    bhk: 'PH',
     pag: 'PH',
     mdh: 'PH',
     tsg: 'PH',
@@ -274,13 +277,10 @@ const langRegionMap = {
     bku: 'PH',
 
     ur: 'PK',
-    pa: 'PK',
     pa_arab: 'PK',
-    arab: 'PK',   // script
     lah: 'PK',
     ps: 'PK',
     sd: 'PK',
-    sd_arab: 'PK',
     skr: 'PK',
     bal: 'PK',
     brh: 'PK',
@@ -295,11 +295,13 @@ const langRegionMap = {
     mvy: 'PK',
     kxp: 'PK',
     gjk: 'PK',
+    trw: 'PK',
     btv: 'PK',
 
     gn: 'PY',
 
     th: 'TH',
+    thai: 'TH',   // script
     tts: 'TH',
     nod: 'TH',
     sou: 'TH',
@@ -307,8 +309,6 @@ const langRegionMap = {
     kxm: 'TH',
     kdt: 'TH',
     lwl: 'TH',
-
-    aeb: 'TN',
 
     zh_hant: 'TW',
     hant: 'TW',   // script
@@ -332,9 +332,7 @@ const langRegionMap = {
     xh: 'ZA',
     af: 'ZA',
     nso: 'ZA',
-    st: 'ZA',
     ts: 'ZA',
-    ss: 'ZA',
     ve: 'ZA',
     nr: 'ZA',
 
@@ -346,11 +344,13 @@ const langRegionMap = {
 
     haz: 'AF',
     uz_arab: 'AF',
+    prd: 'AF',
 
     arq: 'DZ',
     kab: 'DZ',
 
     ar: 'EG',
+    arab: 'EG',   // script
     arz: 'EG',
 
     ckb: 'IQ',
@@ -366,20 +366,7 @@ const langRegionMap = {
     bqi: 'IR',
     luz: 'IR',
     lki: 'IR',
-    prd: 'IR',
     gbz: 'IR',
-
-    ary: 'MA',
-    zgh: 'MA',
-    tzm: 'MA',
-    tzm_latn: 'MA',
-    shi: 'MA',
-    shi_latn: 'MA',
-    shi_tfng: 'MA',
-    tfng: 'MA',   // script
-    rif: 'MA',
-    rif_latn: 'MA',
-    rif_tfng: 'MA',
 
     bej: 'SD',
     fvr: 'SD',
@@ -388,12 +375,8 @@ const langRegionMap = {
     zag: 'SD',
 
 
-    bn: 'BD',
-    rkt: 'BD',
-    syl: 'BD',
-    ccp: 'BD',
-
-    dv: 'MV'
+    dv: 'MV',
+    thaa: 'MV'   // script
 };
 /* eslint-enable camelcase */
 

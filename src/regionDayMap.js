@@ -8,6 +8,9 @@
 /* eslint quote-props: ['error', 'as-needed', {'keywords': true, 'numbers': false, 'unnecessary': false}] */
 /**
  * Data about first day of week depending on country code.
+ * Based on:
+ * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html
+ * - https://www.iso.org/iso-3166-country-codes.html
  */
 const regionDayMap = {
     // Sunday

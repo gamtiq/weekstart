@@ -62,7 +62,8 @@ export function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
     if (locale) {
         // Locale form: http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers
         const data = locale.toLowerCase().split(/[-_]/);
-        let language = data[0];
+        const langTag = data[0];
+        let language = langTag;
         let country;
         if (data[1] && data[1].length === 4) {
             language += `_${data[1]}`;
@@ -72,7 +73,7 @@ export function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
             country = data[1];
         }
         if (! country) {
-            country = langRegionMap[language];
+            country = langRegionMap[language] || langRegionMap[langTag];
         }
         if (country) {
             return getWeekStartByRegion(

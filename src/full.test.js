@@ -14,11 +14,12 @@ describe('full', function fullTestSuite() {
         }
 
         it('should return correct result for ISO 3166 Alpha-2 code', () => {
+            verify('Bd', 0);
             verify('bs', 0);
             verify('PE', 0);
             verify('kw', 6);
             verify('SD', 6);
-            verify('bd', 5);
+            verify('mv', 5);
             verify('no', 1);
             verify('RU', 1);
         });
@@ -38,7 +39,7 @@ describe('full', function fullTestSuite() {
             verify(710, 0);
             verify(400, 6);
             verify(729, 6);
-            verify(50, 5);
+            verify(462, 5);
             verify(246, 1);
             verify(686, 1);
         });
@@ -58,29 +59,35 @@ describe('full', function fullTestSuite() {
         }
 
         it('should return correct result for locale containing only language code', () => {
+            verify('ccp', 0);
             verify('HI', 0);
             verify('jam', 0);
             verify('FA', 6);
             verify('bej', 6);
-            verify('ccp', 5);
             verify('HR', 1);
             verify('vi', 1);
         });
 
         it('should return correct result for locale containing only language code and script', () => {
-            verify('kk-arab', 0);
-            verify('kk_Cyrl', 1);
+            verify('TG-Arab', 0);
+            verify('Tg_Cyrl', 1);
+            verify('az-arab', 6);
+            verify('az_Cyrl', 1);
             verify('UZ-ARAB', 6);
             verify('Uz-latn', 1);
+            verify('Pa-Arab', 0);
+            verify('haz_DEVA', 6);
         });
 
         it('should return correct result for locale containing only script', () => {
-            verify('Arab', 0);
+            verify('Arab', 6);
+            verify('deva', 0);
             verify('cyrl', 1);
-            verify('Hans', 0);
+            verify('Hans', 1);
             verify('hant', 0);
             verify('LATN', 1);
-            verify('Tfng', 6);
+            verify('Tfng', 1);
+            verify('THAA', 5);
         });
 
         it('should return correct result for locale containing only language and region code', () => {
@@ -96,15 +103,15 @@ describe('full', function fullTestSuite() {
             verify('arab-IR', 6);
             verify('Arab_MN', 1);
             verify('Hant_MY', 1);
-            verify('latn_MA', 6);
+            verify('latn_PY', 0);
         });
 
         it('should return correct result for locale containing language, script and region code', () => {
             verify('az-arab-iq', 6);
             verify('az_Arab-TR', 1);
             verify('Az-Cyrl_Ru', 1);
-            verify('kk_Arab_cn', 0);
-            verify('KK-ARAB_AF', 6);
+            verify('zh_Hant_tw', 0);
+            verify('ZH-HANT_VN', 1);
         });
 
         it('should return correct result for arbitrary locale', () => {
@@ -112,7 +119,7 @@ describe('full', function fullTestSuite() {
             verify('az_arab_IRA', 1);
             verify('HI-Fij', 1);
             verify('MS_SG_u-data', 0);
-            verify('en-bd-t-true-DE', 5);
+            verify('en-mv-t-true-DE', 5);
         });
 
         it('should return 1', () => {

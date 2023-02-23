@@ -1,5 +1,9 @@
 /**
  * Contains base mapping of language code to country code.
+ * Contains data only for countries which first day of week is not monday,
+ * and mainly for languages approximately having more than 10 mln speakers.
+ *
+ * Based on data from `fullLangRegionMap.js`.
  * 
  * @module langRegionMap
  */
@@ -8,20 +12,16 @@
 /* eslint-disable camelcase */
 /**
  * Base mapping of language code to country code.
+ * Contains data only for countries which first day of week is not monday,
+ * and mainly for languages approximately having more than 10 mln speakers.
+ *
+ * Based on data from `fullLangRegionMap.js`.
  */
 const langRegionMap = {
     en: 'US',
     
-    zh: 'CN',
-    zh_hans: 'CN',
-    hans: 'CN',   // script
-    wuu: 'CN',
-    hsn: 'CN',
-    hak: 'CN',
-    nan: 'CN',
-    gan: 'CN',
-    
     hi: 'IN',
+    deva: 'IN',   // script
     te: 'IN',
     mr: 'IN',
     ta: 'IN',
@@ -29,7 +29,7 @@ const langRegionMap = {
     kn: 'IN',
     or: 'IN',
     ml: 'IN',
-    pa_guru: 'IN',
+    pa: 'IN',
     bho: 'IN',
     awa: 'IN',
     as: 'IN',
@@ -40,11 +40,17 @@ const langRegionMap = {
     hne: 'IN',
     dcc: 'IN',
 
+    bn: 'BD',
+    beng: 'BD',   // script
+    rkt: 'BD',
+
     dz: 'BT',
+    tibt: 'BT',   // script
 
     tn: 'BW',
 
     am: 'ET',
+    ethi: 'ET',   // script
     om: 'ET',
 
     quc: 'GT',
@@ -55,23 +61,27 @@ const langRegionMap = {
     mad: 'ID',
     ms_arab: 'ID',
 
-    ga: 'IE',
-
     he: 'IL',
+    hebr: 'IL',   // script
 
     jam: 'JM',
 
     ja: 'JP',
+    jpan: 'JP',   // script
 
     km: 'KH',
+    khmr: 'KH',   // script
 
     ko: 'KR',
+    kore: 'KR',   // script
 
     lo: 'LA',
+    laoo: 'LA',   // script
 
     mh: 'MH',
 
     my: 'MM',
+    mymr: 'MM',   // script
 
     mt: 'MT',
 
@@ -82,21 +92,17 @@ const langRegionMap = {
     ilo: 'PH',
 
     ur: 'PK',
-    pa: 'PK',
     pa_arab: 'PK',
-    arab: 'PK',   // script
     lah: 'PK',
     ps: 'PK',
     sd: 'PK',
-    sd_arab: 'PK',
     skr: 'PK',
 
     gn: 'PY',
 
     th: 'TH',
+    thai: 'TH',   // script
     tts: 'TH',
-
-    aeb: 'TN',
 
     zh_hant: 'TW',
     hant: 'TW',   // script
@@ -111,18 +117,15 @@ const langRegionMap = {
     arq: 'DZ',
 
     ar: 'EG',
+    arab: 'EG',   // script
     arz: 'EG',
 
     fa: 'IR',
     az_arab: 'IR',
 
-    ary: 'MA',
 
-
-    bn: 'BD',
-    rkt: 'BD',
-
-    dv: 'MV'
+    dv: 'MV',
+    thaa: 'MV'   // script
 };
 /* eslint-enable camelcase */
 
