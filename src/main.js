@@ -21,13 +21,12 @@ import regionDayMap from './regionDayMap';
  *
  * Based on data from:
  * - [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html)
- * - [https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json)
  * - [https://www.iso.org/iso-3166-country-codes.html](https://www.iso.org/iso-3166-country-codes.html)
  *
  * @example
  * getWeekStartByRegion('PNG');   // 1
  * getWeekStartByRegion('qa');   // 6
- * getWeekStartByRegion(50);   // 5
+ * getWeekStartByRegion(462);   // 5
  *
  * @param {number | string} regionCode
  *      ISO 3166 Alpha-2, Alpha-3 or numeric code.

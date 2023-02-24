@@ -12,9 +12,9 @@
  * Contains data only for countries which first day of week is not monday.
  *
  * Based on:
- * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html
- * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html
- * - https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html
+ * - [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html)
+ * - [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html)
+ * - [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html)
  */
 const langRegionMap = {
     en: 'US',

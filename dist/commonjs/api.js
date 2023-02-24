@@ -8,7 +8,8 @@ function getWeekStartByRegion(regionCode, regionDayMap) {
 function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
     if (locale) {
         var data = locale.toLowerCase().split(/[-_]/);
-        var language = data[0];
+        var langTag = data[0];
+        var language = langTag;
         var country;
         if (data[1] && data[1].length === 4) {
             language += "_" + (data[1]);
@@ -17,7 +18,7 @@ function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
             country = data[1];
         }
         if (!country) {
-            country = langRegionMap[language];
+            country = langRegionMap[language] || langRegionMap[langTag];
         }
         if (country) {
             return getWeekStartByRegion(country.match(/^\d+$/) ? Number(country) : country, regionDayMap);

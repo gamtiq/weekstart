@@ -7,7 +7,7 @@ Library to get first day of week.
 ```js
 getWeekStartByRegion('MAC');   // 0
 
-getWeekStartByLocale('ary');   // 6
+getWeekStartByLocale('arq');   // 6
 ```
 
 The library is based on the following data from Unicode (especially from Common Locale Data Repository) and from ISO:
@@ -15,6 +15,7 @@ The library is based on the following data from Unicode (especially from Common 
 * [https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/weekData.json)
 * [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_language_information.html)
 * [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_territory_information.html)
+* [https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/scripts_languages_and_territories.html)
 * [http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers](http://www.unicode.org/reports/tr35/tr35.html#Unicode_Language_and_Locale_Identifiers)
 * [https://www.iso.org/iso-3166-country-codes.html](https://www.iso.org/iso-3166-country-codes.html)
 
@@ -115,7 +116,7 @@ If you need full data use `path/to/dist/full.js` instead of `path/to/dist/main.j
 getWeekStartByRegion('dj');   // 6
 getWeekStartByRegion('No');   // 1
 getWeekStartByRegion('CAN');   // 0
-getWeekStartByRegion(50);   // 5
+getWeekStartByRegion(462);   // 5
 
 getWeekStartByLocale('Jam');   // 0
 getWeekStartByLocale('Fa');   // 6
@@ -128,7 +129,7 @@ In the following examples results are given for the function from `full.js`.
 The same calls for the function from `main.js` will return `1`.
 
 ```js
-getWeekStartByLocale('CCP');   // 5
+getWeekStartByLocale('CCP');   // 0
 getWeekStartByLocale('UZ-arab');   // 6
 ```
 
